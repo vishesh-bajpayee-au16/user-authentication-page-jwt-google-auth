@@ -1,2 +1,23 @@
 JWT CONFIGURATION STEPS
+1. Add cors and json middlewares to app()
+2. create a post route for login/signup and type require jwt. 
+3. add jwt.sign() to the route with a user object fron req.body along with a secret key that we access from process.env as a second parameter 
+4. assign the generated token to the header using req.header("any name you want to give to identify token", token)
+5. verify a token with secret key to create private routes using jwt.verify(token,secret_key)
 
+
+VALIDATIONS
+1. install @hapi/joi package
+2. create a file named validations.js
+3. create a function that takes one parameter as data
+4. create a schema for validation 
+5. return joi.validate function with data and schema as arguments respectively 
+
+
+HASH A PASSWORD
+1. install bcrypt package 
+2. generate salt  with bcryptgenSalt(10) and save it in a variable 
+3. generate hashed password with bcrypt.hash(req.body.password,salt) taking password and salt as two parameters respectively 
+4. use await for both the processes
+    LOGIN VALIDATION 
+    1. compare the user entered password with the hashed password from db by await bcrypt.compare(req.body.password,user.password) taking entered password and hashed from db respectively as parameteres
