@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
   // assigning token to the header
   res.header("auth-token", token).send(token);
 
-  res.send("Logged in");
+  res.render("/");
 });
 
 module.exports = router;
